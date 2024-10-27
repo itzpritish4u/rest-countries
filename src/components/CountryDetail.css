@@ -1,0 +1,95 @@
+.country-detail {
+  margin: 0 4.5%;
+  display: flex;
+  flex-direction: column;
+  height: 88.2vh;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 45vh;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  line-height: 30px;
+}
+
+.back-button {
+  align-self: flex-start;
+  padding: 0.7rem 2.5rem;
+  background-color: inherit;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 5rem 0;
+  text-decoration: none;
+  display: block;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .container {
+  background-color: hsl(207, 26%, 17%);
+    color: hsl(0, 0%, 100%);
+}
+
+.country-flag {
+  width: 38%;
+  height: inherit;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  width: 40%;
+  margin-left: 5%;
+}
+
+.country-info h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.country-info p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.border-countries {
+  gap: 1rem;
+  margin-top: 3rem;
+  font-size: 1.2rem;
+}
+
+.border-countries strong {
+  margin-right: 0.5rem;
+}
+
+.border-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  margin: 0 0.3rem;
+  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .back-button, .dark-mode .border-button {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+}
+
+.loader {
+  font-size: 4rem;
+  color: #333;
+  margin-left: 40%;
+  margin-top: 20%;
+}

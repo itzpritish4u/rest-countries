@@ -1,43 +1,43 @@
-import React, {useState, useEffect} from 'react'
+import { Link } from "react-router-dom";
+import "./Countries.css";
 
-const url = 'https://restcountries.com/v3.1/all'
+const Countries = ({ countries }) => {
+  return (
+    <section className="grid">
+      {countries.map(country => {
+        const {
+          cca3,
+          name: { common },
+          flags: { png },
+          population = "N/A",
+          region = "N/A",
+          capital = ["N/A"],
+        } = country;
 
-const Countries = () => {
-    const [countries, setCountries] = useState([]);
+        return (
+          <Link to={`/countries/${cca3}`} key={cca3} className="grid-block-link">
+            <article className="grid-block">
+              <div>
+                <img src={png} alt={`${common} flag`} />
+                <div className="detail">
+                  <h3>{common}</h3>
+                  <h4>
+                    Population: <span>{population.toLocaleString()}</span>
+                  </h4>
+                  <h4>
+                    Region: <span>{region}</span>
+                  </h4>
+                  <h4>
+                    Capital: <span>{capital[0]}</span>
+                  </h4>
+                </div>
+              </div>
+            </article>
+          </Link>
+        );
+      })}
+    </section>
+  );
+};
 
-    useEffect(() => {
-        const fetchCountries = async () => {
-            const response = await fetch(url)
-            const countries = await response.json()
-            setCountries(countries)
-        }
-        
-        fetchCountries()
-    }, [])
-    
-    return (
-        <>
-            <section className="grid">
-                {countries.map(country => {
-                    const { cca3, name: { common }, flags: { png }, population, region, capital } = country;
-
-                    return (
-                        <article className='grid-block' key={cca3}>
-                           <div>
-                                <img src={png} alt={`${common} flag`} />
-                                <div className="details">
-                                    <h3>{common}</h3>
-                                    <h4>Population: <span>{population}</span></h4>
-                                    <h4>Region: <span>{region}</span></h4>
-                                    <h4>Capital: <span>{capital}</span></h4>
-                                </div>
-                            </div>
-                        </article>
-                    )
-                })}
-            </section>
-        </>
-    )
-}
-
-export default Countries
+export default Countries;
